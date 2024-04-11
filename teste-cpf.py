@@ -41,24 +41,18 @@ while r == 's':
 
     if (primeiroDigitoGerado == int(cpf[9]) and segundoDigitoGerado == int(cpf[10])):
         print('cpf válido')
-        top = {}
-        top['CPF'] = int(cpf)
-        top['VALIDACAO'] = 'VÁLIDO'
-        cpfs.append(top)
+        cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
         nValidos += 1
     else:
         print('cpf inválido')
-        top = {}
-        top['CPF'] = int(cpf)
-        top['VALIDACAO'] = 'INVÁLIDO'
-        cpfs.append(top)
+        cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
         nInvalidos += 1
 
     nCpfs += 1
 
-    r = input("Deseja testar outro cpf? ").lower()
+    r = input("Deseja testar outro cpf? (s/n) ").lower()
     while r != 's' and r != 'n':
-        r = input("Deseja testar outro cpf? ").lower()
+        r = input("Deseja testar outro cpf? (s/n) ").lower()
 
 porcentagemValidos = nInvalidos / nCpfs
 
