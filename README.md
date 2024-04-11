@@ -1,6 +1,9 @@
-# Teste de cpfs
+![](https://github.com/GuilhermeAranega/teste-cpfs/blob/main/public/teste-cpf.gif)
 
-Um projeto para testar Cpfs feito em python para avaliação do Colégios Univap Unidade Centro 
+# Teste de CPFs
+
+Um projeto para testar CPFs feito em python para uma avaliação do Colégios Univap Unidade Centro. 
+Após fazer a verificação, fornece as estatísticas como quantos CPFs foram testados, quantos foram válidos, quantos foram inválidos, a porcentagem de CPFs válidos e a porcentagem de CPFs inválidos
 
 ## Como usar:
 
