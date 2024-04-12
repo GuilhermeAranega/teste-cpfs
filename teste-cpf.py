@@ -3,10 +3,17 @@ cpfs = []
 nValidos = 0
 nInvalidos = 0
 nCpfs = 0
+jaTestado = False
 while r == 's':
     cpf = input('Digite o cpf: ')
     while cpf == '' or not cpf.isnumeric() or len(cpf) != 11:
         cpf = input('Digite o cpf: ')
+
+    for i in cpfs:
+        if i['CPF'] == int(cpf):
+            print('CPF já testado')
+            jaTestado = True
+            break
 
     cpfInicial = cpf[:9]
     multiDigitoUm = 10
@@ -38,17 +45,19 @@ while r == 's':
         segundoDigitoGerado = 0
     else:
         segundoDigitoGerado = 11 - restoDigitoDois
+    
+    if not jaTestado:
+        if (primeiroDigitoGerado == int(cpf[9]) and segundoDigitoGerado == int(cpf[10])):
+            print('cpf válido')
+            cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
+            nValidos += 1
+        else:
+            print('cpf inválido')
+            cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
+            nInvalidos += 1
 
-    if (primeiroDigitoGerado == int(cpf[9]) and segundoDigitoGerado == int(cpf[10])):
-        print('cpf válido')
-        cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
-        nValidos += 1
-    else:
-        print('cpf inválido')
-        cpfs.append({'CPF': int(cpf), 'VALIDACAO': 'INVÁLIDO'})
-        nInvalidos += 1
-
-    nCpfs += 1
+        nCpfs += 1
+    jaTestado = False
 
     r = input("Deseja testar outro cpf? (s/n) ").lower()
     while r != 's' and r != 'n':
